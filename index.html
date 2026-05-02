@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pandiyaraj Nadesan — Data Quality SME & AI Automation Architect</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #E8A020;
+    --gold-light: #F5C355;
+    --gold-dim: rgba(232,160,32,0.12);
+    --dark: #0A0C0F;
+    --dark2: #111418;
+    --dark3: #181C22;
+    --dark4: #1F242C;
+    --border: rgba(255,255,255,0.07);
+    --text: #F0EDE8;
+    --text-muted: #8A8F99;
+    --text-dim: #555B66;
+    --green: #2ECC8A;
+    --blue: #4B9EF5;
+    --radius: 12px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--dark);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(10,12,15,0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 5%;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 60px;
+  }
+  .nav-brand {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700; font-size: 15px;
+    color: var(--gold); letter-spacing: 0.5px;
+  }
+  .nav-links { display: flex; gap: 32px; }
+  .nav-links a {
+    color: var(--text-muted); text-decoration: none;
+    font-size: 13px; letter-spacing: 0.5px;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 100px 5% 80px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -200px; right: -200px;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(232,160,32,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner { max-width: 820px; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--gold-dim);
+    border: 1px solid rgba(232,160,32,0.25);
+    border-radius: 100px;
+    padding: 6px 16px;
+    font-size: 12px; letter-spacing: 1px; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 32px;
+  }
+  .hero-badge span { width: 6px; height: 6px; background: var(--green); border-radius: 50%; display: inline-block; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+  h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(42px, 6vw, 72px);
+    font-weight: 800; line-height: 1.05;
+    letter-spacing: -1px;
+    margin-bottom: 12px;
+  }
+  .hero-name-gold { color: var(--gold); }
+  .hero-title {
+    font-size: clamp(15px, 2vw, 18px);
+    color: var(--text-muted);
+    font-weight: 300; letter-spacing: 0.5px;
+    margin-bottom: 28px;
+  }
+  .hero-desc {
+    font-size: 16px; color: var(--text-muted);
+    max-width: 600px; margin-bottom: 48px;
+    line-height: 1.8;
+  }
+  .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--gold); color: #0A0C0F;
+    padding: 14px 28px; border-radius: 8px;
+    text-decoration: none; font-weight: 600; font-size: 14px;
+    transition: all 0.2s; letter-spacing: 0.3px;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .btn-ghost {
+    background: transparent; color: var(--text);
+    padding: 14px 28px; border-radius: 8px;
+    text-decoration: none; font-weight: 500; font-size: 14px;
+    border: 1px solid var(--border);
+    transition: all 0.2s;
+  }
+  .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* STATS BAR */
+  .stats-bar {
+    background: var(--dark3);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 40px 5%;
+  }
+  .stats-grid {
+    max-width: 1100px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 32px; text-align: center;
+  }
+  .stat-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 36px; font-weight: 800;
+    color: var(--gold); line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-label { font-size: 12px; color: var(--text-muted); letter-spacing: 0.5px; text-transform: uppercase; }
+
+  /* SECTIONS */
+  section { padding: 100px 5%; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-tag {
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 12px; font-weight: 500;
+  }
+  h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 700; line-height: 1.15;
+    margin-bottom: 16px;
+  }
+  .section-sub { color: var(--text-muted); font-size: 16px; max-width: 580px; margin-bottom: 60px; line-height: 1.8; }
+
+  /* MODULE CARDS */
+  .modules-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+  .module-card {
+    background: var(--dark3);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px;
+    transition: border-color 0.2s, transform 0.2s;
+    position: relative; overflow: hidden;
+  }
+  .module-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+  }
+  .module-card:hover { border-color: rgba(232,160,32,0.3); transform: translateY(-3px); }
+  .module-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 10px;
+  }
+  .module-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 20px; font-weight: 700;
+    margin-bottom: 8px; line-height: 1.25;
+  }
+  .module-status {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 11px; letter-spacing: 0.5px;
+    padding: 4px 10px; border-radius: 100px;
+    margin-bottom: 20px; font-weight: 500;
+  }
+  .status-live { background: rgba(46,204,138,0.12); color: var(--green); }
+  .status-live::before { content:''; width:6px; height:6px; background: var(--green); border-radius:50%; display:inline-block; }
+  .status-testing { background: rgba(75,158,245,0.12); color: var(--blue); }
+  .status-testing::before { content:''; width:6px; height:6px; background: var(--blue); border-radius:50%; display:inline-block; }
+  .status-standard { background: rgba(232,160,32,0.12); color: var(--gold); }
+  .status-standard::before { content:''; width:6px; height:6px; background: var(--gold); border-radius:50%; display:inline-block; }
+  .module-desc { font-size: 14px; color: var(--text-muted); line-height: 1.75; margin-bottom: 20px; }
+  .module-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tag {
+    font-size: 11px; padding: 4px 10px; border-radius: 6px;
+    background: var(--dark4); color: var(--text-muted);
+    border: 1px solid var(--border); letter-spacing: 0.3px;
+  }
+  .module-highlight {
+    background: var(--gold-dim);
+    border: 1px solid rgba(232,160,32,0.2);
+    border-radius: 8px; padding: 12px 16px;
+    margin-top: 16px;
+    font-size: 13px; color: var(--gold);
+    font-weight: 500;
+  }
+
+  /* GAIN TABLE */
+  .gain-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 20px 0; }
+  .gain-item { background: var(--dark4); border-radius: 8px; padding: 16px; text-align: center; }
+  .gain-pct { font-family: 'Syne', sans-serif; font-size: 28px; font-weight: 800; color: var(--gold); }
+  .gain-team { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+
+  /* MIMIR */
+  .mimir-card {
+    background: var(--dark3); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 48px;
+    position: relative; overflow: hidden;
+  }
+  .mimir-card::after {
+    content: 'MIMIR';
+    position: absolute; right: -20px; top: 20px;
+    font-family: 'Syne', sans-serif; font-size: 120px; font-weight: 800;
+    color: rgba(255,255,255,0.02); pointer-events: none;
+    letter-spacing: -4px;
+  }
+  .dim-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 32px; }
+  .dim-item {
+    background: var(--dark4); border-radius: 8px; padding: 20px;
+    border-left: 3px solid var(--gold);
+  }
+  .dim-name { font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 700; color: var(--gold); margin-bottom: 6px; }
+  .dim-desc { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+
+  /* VENDORS */
+  .vendor-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; }
+  .vendor-card {
+    background: var(--dark3); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 24px;
+    text-align: center; transition: border-color 0.2s, transform 0.2s;
+  }
+  .vendor-card:hover { border-color: rgba(232,160,32,0.3); transform: translateY(-2px); }
+  .vendor-name { font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+  .vendor-domain { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+
+  /* QC RECORD */
+  .record-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+  .record-card {
+    background: var(--dark3); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 28px;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .record-icon { font-size: 20px; margin-bottom: 4px; }
+  .record-val { font-family: 'Syne', sans-serif; font-size: 28px; font-weight: 800; color: var(--text); }
+  .record-val.gold { color: var(--gold); }
+  .record-val.green { color: var(--green); }
+  .record-label { font-size: 13px; color: var(--text-muted); }
+
+  /* TECH */
+  .tech-section { background: var(--dark2); }
+  .tech-group { margin-bottom: 40px; }
+  .tech-group-label {
+    font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--text-dim); margin-bottom: 16px; font-weight: 500;
+  }
+  .tech-pills { display: flex; flex-wrap: wrap; gap: 10px; }
+  .tech-pill {
+    background: var(--dark3); border: 1px solid var(--border);
+    border-radius: 8px; padding: 8px 16px;
+    font-size: 13px; color: var(--text); font-weight: 400;
+    transition: all 0.2s;
+  }
+  .tech-pill:hover { border-color: var(--gold); color: var(--gold); background: var(--gold-dim); }
+
+  /* CERTS */
+  .cert-list { display: flex; flex-direction: column; gap: 16px; }
+  .cert-item {
+    background: var(--dark3); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 20px 24px;
+    display: flex; align-items: center; gap: 20px;
+    transition: border-color 0.2s;
+  }
+  .cert-item:hover { border-color: rgba(232,160,32,0.2); }
+  .cert-year {
+    font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 700;
+    color: var(--gold); min-width: 44px;
+  }
+  .cert-name { font-size: 14px; font-weight: 500; margin-bottom: 2px; }
+  .cert-issuer { font-size: 12px; color: var(--text-muted); }
+  .cert-badge {
+    margin-left: auto;
+    font-size: 10px; padding: 3px 10px; border-radius: 100px;
+    background: rgba(46,204,138,0.1); color: var(--green);
+    font-weight: 500; letter-spacing: 0.5px; white-space: nowrap;
+  }
+  .cert-badge.progress { background: rgba(75,158,245,0.1); color: var(--blue); }
+
+  /* CONTACT */
+  .contact-section { background: var(--dark3); }
+  .contact-inner { max-width: 700px; text-align: center; margin: 0 auto; }
+  .contact-links { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin-top: 40px; }
+  .contact-link {
+    display: flex; align-items: center; gap: 10px;
+    background: var(--dark4); border: 1px solid var(--border);
+    border-radius: 10px; padding: 14px 24px;
+    text-decoration: none; color: var(--text);
+    font-size: 14px; font-weight: 500;
+    transition: all 0.2s;
+  }
+  .contact-link:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+  .contact-link svg { width: 18px; height: 18px; fill: currentColor; }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark); border-top: 1px solid var(--border);
+    padding: 32px 5%; text-align: center;
+    font-size: 13px; color: var(--text-dim);
+  }
+
+  /* DIVIDER */
+  .divider { width: 60px; height: 2px; background: var(--gold); margin-bottom: 32px; }
+
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hero { padding: 90px 5% 60px; }
+    .mimir-card { padding: 28px; }
+    .gain-grid { grid-template-columns: repeat(3,1fr); gap: 10px; }
+    .gain-pct { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">PANDIYARAJ NADESAN</div>
+  <div class="nav-links">
+    <a href="#suite">AI Suite</a>
+    <a href="#mimir">Project Mimir</a>
+    <a href="#vendors">Vendors</a>
+    <a href="#stack">Tech</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">
+      <span></span>
+      Available for Senior Roles
+    </div>
+    <h1>
+      <span class="hero-name-gold">Pandiyaraj</span><br>Nadesan
+    </h1>
+    <p class="hero-title">Data Quality SME &nbsp;·&nbsp; AI Automation Architect &nbsp;·&nbsp; QC Operations Owner</p>
+    <p class="hero-desc">
+      8+ years building enterprise data quality systems at Altrata, a Delinian Company. 
+      Independently built a 4-module AI Automation Suite — formally approved by senior management — 
+      delivering a documented 566–642% efficiency gain now running as the enterprise-wide standard.
+    </p>
+    <div class="hero-cta">
+      <a href="https://rustic-toy-2e3.notion.site/Pandiyaraj-Nadesan-Portfolio-35401aa01c3f80a4a75bffc804ebbf8d" target="_blank" class="btn-primary">View Full Portfolio</a>
+      <a href="https://linkedin.com/in/pandiyaraj-dataquality" target="_blank" class="btn-ghost">LinkedIn Profile</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stats-grid">
+    <div><div class="stat-num" data-target="8">0</div><div class="stat-label">Years Enterprise Experience</div></div>
+    <div><div class="stat-num" data-target="642" data-suffix="%">0%</div><div class="stat-label">Peak Efficiency Gain</div></div>
+    <div><div class="stat-num" data-target="611" data-suffix="+">0+</div><div class="stat-label">Hours Saved & Counting</div></div>
+    <div><div class="stat-num" data-target="4">0</div><div class="stat-label">AI Modules Built</div></div>
+    <div><div class="stat-num">Zero</div><div class="stat-label">Defect Record</div></div>
+    <div><div class="stat-num">100%</div><div class="stat-label">Rebuttal Closure</div></div>
+  </div>
+</div>
+
+<!-- AI SUITE -->
+<section id="suite">
+  <div class="section-inner">
+    <p class="section-tag">Built Independently</p>
+    <h2>AI Automation Suite</h2>
+    <p class="section-sub">4-module production system — formally approved by senior management with organisation-wide implementation across Altrata, a Delinian Company.</p>
+
+    <div class="modules-grid">
+
+      <!-- MODULE 1 -->
+      <div class="module-card">
+        <div class="module-num">Module 01</div>
+        <div class="module-title">Efficiency Gain Module</div>
+        <div class="module-status status-standard">Enterprise Standard</div>
+        <div class="gain-grid">
+          <div class="gain-item"><div class="gain-pct">566%</div><div class="gain-team">Research</div></div>
+          <div class="gain-item"><div class="gain-pct">642%</div><div class="gain-team">QC</div></div>
+          <div class="gain-item"><div class="gain-pct">636%</div><div class="gain-team">Legal</div></div>
+        </div>
+        <p class="module-desc">Reduced per-organisation processing from 2–3 days to 1–2 hours. Upgraded to Python Streamlit UI — results delivered in 2–3 seconds, zero prompt runtime.</p>
+        <div class="module-highlight">Now the default operating process for every organisation processed at Altrata. Entire floor running on this module.</div>
+        <div class="module-tags" style="margin-top:16px;">
+          <span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">.bat launcher</span>
+        </div>
+      </div>
+
+      <!-- MODULE 2 -->
+      <div class="module-card">
+        <div class="module-num">Module 02</div>
+        <div class="module-title">Board & Governance Validation Agent</div>
+        <div class="module-status status-live">Live in Production</div>
+        <p class="module-desc">Validates board membership and affiliation records against live real-world sources using Deterministic + Probabilistic methods with a Discovery Pass layer that surfaces new relationships.</p>
+        <p class="module-desc">Classification: <em>Employed · Exited · Likely Employed · Likely Exited · Unclear</em></p>
+        <div class="module-tags">
+          <span class="tag">Deterministic</span><span class="tag">Probabilistic</span><span class="tag">Discovery Pass</span><span class="tag">Copilot GPT</span><span class="tag">Claude</span>
+        </div>
+      </div>
+
+      <!-- MODULE 3 -->
+      <div class="module-card">
+        <div class="module-num">Module 03</div>
+        <div class="module-title">Employment & Governance Validation Agent</div>
+        <div class="module-status status-live">Live in Production</div>
+        <p class="module-desc">Same deterministic framework applied to employment relationship validation. Discovery Pass layer flags unreported role changes, new positions, and exits not yet in the database.</p>
+        <div class="module-tags">
+          <span class="tag">Deterministic</span><span class="tag">Probabilistic</span><span class="tag">Discovery Pass</span><span class="tag">Copilot GPT</span><span class="tag">Claude</span>
+        </div>
+      </div>
+
+      <!-- MODULE 4 -->
+      <div class="module-card">
+        <div class="module-num">Module 04</div>
+        <div class="module-title">Data Entry Audit Agent</div>
+        <div class="module-status status-testing">In Testing</div>
+        <p class="module-desc">Python Streamlit UI transforming QC from 10% sample-based to 100% full coverage audit across 5 modules: Individual Details · Employment · Clubs · Education · Achievements.</p>
+        <div class="module-highlight">If approved: first 100% coverage audit system in Altrata history.</div>
+        <div class="module-tags" style="margin-top:16px;">
+          <span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">openpyxl</span><span class="tag">pandas</span><span class="tag">.bat</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECT MIMIR -->
+<section id="mimir" style="background: var(--dark2);">
+  <div class="section-inner">
+    <p class="section-tag">High Priority · Management Endorsed</p>
+    <h2>Project Mimir</h2>
+    <p class="section-sub">Internal Product Audit Ownership — ensuring Altrata delivers an error-free product to its global enterprise clients across BoardEx, Relsci, and WealthX.</p>
+
+    <div class="mimir-card">
+      <p class="section-tag" style="margin-bottom:8px;">6-Dimension QC Strategy</p>
+      <p style="color: var(--text-muted); font-size:15px; max-width:600px;">Structured platform-level audits identifying data gaps and inconsistencies before they reach clients. Findings inform executive-level product decisions and roadmaps.</p>
+
+      <div class="dim-grid">
+        <div class="dim-item">
+          <div class="dim-name">Accuracy</div>
+          <div class="dim-desc">Every entry validated against authoritative real-world sources</div>
+        </div>
+        <div class="dim-item">
+          <div class="dim-name">Completeness</div>
+          <div class="dim-desc">Missing records, relationships, and attributes identified and flagged</div>
+        </div>
+        <div class="dim-item">
+          <div class="dim-name">Consistency</div>
+          <div class="dim-desc">Cross-platform alignment verified across all three core brands</div>
+        </div>
+        <div class="dim-item">
+          <div class="dim-name">Timeliness</div>
+          <div class="dim-desc">Outdated entries that no longer reflect current reality are surfaced</div>
+        </div>
+        <div class="dim-item">
+          <div class="dim-name">Validity</div>
+          <div class="dim-desc">Data verified to conform to defined standards and business rules</div>
+        </div>
+        <div class="dim-item">
+          <div class="dim-name">Uniqueness</div>
+          <div class="dim-desc">Duplicate records and conflicting entries detected and resolved</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VENDORS -->
+<section id="vendors">
+  <div class="section-inner">
+    <p class="section-tag">Daily Hands-On Experience</p>
+    <h2>Multi-Vendor Data Expertise</h2>
+    <p class="section-sub">Cross-referencing the world's leading financial and corporate intelligence data sources — validating feeds and maintaining Golden Record standards at enterprise scale.</p>
+
+    <div class="vendor-grid">
+      <div class="vendor-card">
+        <div class="vendor-name">S&P Global</div>
+        <div class="vendor-domain">Financial data · Public company intelligence · Market data</div>
+      </div>
+      <div class="vendor-card">
+        <div class="vendor-name">Morningstar</div>
+        <div class="vendor-domain">Investment data · Fund information · Financial analysis</div>
+      </div>
+      <div class="vendor-card">
+        <div class="vendor-name">Crunchbase</div>
+        <div class="vendor-domain">Private company data · Startup intelligence · Funding</div>
+      </div>
+      <div class="vendor-card">
+        <div class="vendor-name">EDI Index</div>
+        <div class="vendor-domain">Stock exchange data · Listed company verification</div>
+      </div>
+      <div class="vendor-card">
+        <div class="vendor-name">Visual Visitors</div>
+        <div class="vendor-domain">Web intelligence · Contact identification</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QC RECORD -->
+<section style="background: var(--dark2);">
+  <div class="section-inner">
+    <p class="section-tag">Full Ownership</p>
+    <h2>QC Audit Record</h2>
+    <p class="section-sub">Complete ownership of the QC sample audit cycle — 40 processes across BoardEx, Relsci, and WealthX — maintained without exception, week after week.</p>
+
+    <div class="record-grid">
+      <div class="record-card">
+        <div class="record-val green">Zero</div>
+        <div class="record-label">Defect reports — every audit issued is accurate, complete, and accepted</div>
+      </div>
+      <div class="record-card">
+        <div class="record-val gold">100%</div>
+        <div class="record-label">Rebuttal closure at first stage — all closed with Business Rules + RCA, never escalated</div>
+      </div>
+      <div class="record-card">
+        <div class="record-val">40</div>
+        <div class="record-label">Processes owned — rationalised by eliminating duplicates across the floor</div>
+      </div>
+      <div class="record-card">
+        <div class="record-val">28</div>
+        <div class="record-label">Knowledge sessions delivered for 15 product team members — endorsed by management</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TECH STACK -->
+<section id="stack" class="tech-section">
+  <div class="section-inner">
+    <p class="section-tag">Capabilities</p>
+    <h2>Tech Stack</h2>
+    <div class="divider"></div>
+
+    <div class="tech-group">
+      <div class="tech-group-label">AI & Automation</div>
+      <div class="tech-pills">
+        <span class="tech-pill">Claude (Anthropic)</span>
+        <span class="tech-pill">ChatGPT (OpenAI)</span>
+        <span class="tech-pill">Microsoft Copilot</span>
+        <span class="tech-pill">GPT Deep Thinker</span>
+        <span class="tech-pill">Grok (xAI)</span>
+        <span class="tech-pill">Perplexity</span>
+        <span class="tech-pill">Prompt Engineering</span>
+        <span class="tech-pill">AI Workflow Automation</span>
+      </div>
+    </div>
+
+    <div class="tech-group">
+      <div class="tech-group-label">Development</div>
+      <div class="tech-pills">
+        <span class="tech-pill">Python</span>
+        <span class="tech-pill">Streamlit</span>
+        <span class="tech-pill">openpyxl</span>
+        <span class="tech-pill">pandas</span>
+        <span class="tech-pill">.bat Scripting</span>
+        <span class="tech-pill">ETL</span>
+        <span class="tech-pill">SQL (Foundational)</span>
+      </div>
+    </div>
+
+    <div class="tech-group">
+      <div class="tech-group-label">Analytics & BI</div>
+      <div class="tech-pills">
+        <span class="tech-pill">Power BI (Certified)</span>
+        <span class="tech-pill">Advanced Excel</span>
+        <span class="tech-pill">PowerPoint</span>
+        <span class="tech-pill">KPI Dashboards</span>
+        <span class="tech-pill">CAPA Reporting</span>
+      </div>
+    </div>
+
+    <div class="tech-group">
+      <div class="tech-group-label">Data Quality</div>
+      <div class="tech-pills">
+        <span class="tech-pill">Data Governance</span>
+        <span class="tech-pill">Golden Record Management</span>
+        <span class="tech-pill">Root Cause Analysis</span>
+        <span class="tech-pill">Anomaly Detection</span>
+        <span class="tech-pill">Rebuttal Management</span>
+        <span class="tech-pill">Process Rationalisation</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section>
+  <div class="section-inner">
+    <p class="section-tag">Credentials</p>
+    <h2>Certifications</h2>
+    <div class="divider"></div>
+
+    <div class="cert-list">
+      <div class="cert-item">
+        <div class="cert-year">2026</div>
+        <div><div class="cert-name">AI Fundamentals: Foundations for Understanding AI</div><div class="cert-issuer">IBM SkillsBuild</div></div>
+        <div class="cert-badge">Completed</div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-year">2026</div>
+        <div><div class="cert-name">Claude 101</div><div class="cert-issuer">Anthropic / Skilljar</div></div>
+        <div class="cert-badge">Completed</div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-year">2025</div>
+        <div><div class="cert-name">Prompt Engineering with ChatGPT</div><div class="cert-issuer">Certified</div></div>
+        <div class="cert-badge">Completed</div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-year">2025</div>
+        <div><div class="cert-name">Power BI Full Course</div><div class="cert-issuer">Learnit Training</div></div>
+        <div class="cert-badge">Completed</div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-year" style="color:var(--blue)">2026</div>
+        <div><div class="cert-name">Building with the Claude API</div><div class="cert-issuer">Anthropic / Skilljar</div></div>
+        <div class="cert-badge progress">In Progress</div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-year" style="color:var(--blue)">2026</div>
+        <div><div class="cert-name">Claude Certified Architect Foundations</div><div class="cert-issuer">Anthropic</div></div>
+        <div class="cert-badge progress">Planned</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <div class="section-inner">
+    <div class="contact-inner">
+      <p class="section-tag" style="text-align:center">Get In Touch</p>
+      <h2 style="text-align:center">Open to Senior Roles</h2>
+      <p style="color:var(--text-muted);font-size:16px;text-align:center;margin-top:12px;">
+        Data Quality · AI Automation Architecture · Data Governance · QC Operations
+      </p>
+
+      <div class="contact-links">
+        <a href="mailto:ponselva1994@gmail.com" class="contact-link">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          ponselva1994@gmail.com
+        </a>
+        <a href="https://linkedin.com/in/pandiyaraj-dataquality" target="_blank" class="contact-link">
+          <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://github.com/pandiyarajn-sme" target="_blank" class="contact-link">
+          <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+          GitHub
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Pandiyaraj Nadesan &nbsp;·&nbsp; Tamil Nadu, India &nbsp;·&nbsp; Built with purpose.</p>
+</footer>
+
+<script>
+  const counters = document.querySelectorAll('.stat-num[data-target]');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const target = +el.dataset.target;
+        const suffix = el.dataset.suffix || '';
+        let current = 0;
+        const step = Math.ceil(target / 60);
+        const timer = setInterval(() => {
+          current = Math.min(current + step, target);
+          el.textContent = current + suffix;
+          if (current >= target) clearInterval(timer);
+        }, 25);
+        observer.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+  counters.forEach(c => observer.observe(c));
+</script>
+</body>
+</html>
