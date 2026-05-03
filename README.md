@@ -83,7 +83,7 @@ This is a top-tier, management-endorsed initiative applying a **6-Dimension QC S
 |---|---|
 | **Accuracy** | Data entries validated against authoritative real-world sources |
 | **Completeness** | Identifying missing records, relationships, and attributes |
-| **Consistency** | Cross-platform alignment across BoardEx, Relsci, and WealthX |
+| **Consistency** | Cross-platform alignment across Core Intelligence Platforms |
 | **Timeliness** | Flagging outdated entries that no longer reflect current reality |
 | **Validity** | Ensuring data conforms to defined standards and business rules |
 | **Uniqueness** | Detecting and resolving duplicate records and conflicting entries |
