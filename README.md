@@ -22,7 +22,7 @@
 
 I sit at the intersection of **data quality, AI automation, and enterprise operations** — independently designing and deploying production-grade validation systems that replace manual, error-prone processes with deterministic + probabilistic AI workflows.
 
-Currently at **Altrata, a Delinian Company** as a **Subject Matter Expert — Data Management & Quality Control**, where I own the full QC audit lifecycle across 40 processes covering BoardEx, Relsci, and WealthX.
+Currently at **Altrata, a Delinian Company** as a **Subject Matter Expert — Data Management & Quality Control**, where I own the full QC audit lifecycle across 40 processes covering Core Intelligence Platforms.
 
 ---
 
