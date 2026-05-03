@@ -73,9 +73,9 @@ Currently at **Altrata, a Delinian Company** as a **Subject Matter Expert — Da
 
 ---
 
-## 🔍 Project Mimir — Internal Product Audit Ownership
+## 🔍 Internal Product Audit Ownership
 
-> High-priority, client-facing quality assurance programme — structured audits across **BoardEx · Relsci · WealthX** to ensure Altrata delivers an error-free product to its global clients
+> High-priority, client-facing quality assurance programme — structured audits across **Core Intelligence Platforms** to ensure Altrata delivers an error-free product to its global clients
 
 This is a top-tier, management-endorsed initiative applying a **6-Dimension QC Strategy** across Altrata's core platforms:
 
